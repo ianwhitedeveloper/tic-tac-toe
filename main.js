@@ -34,9 +34,7 @@ var checkForWinner = function () {
     || spaces[2] === spaces[5] && spaces[5] === spaces[8]
     // diagonal left and right wins
     || spaces[0] === spaces[4] && spaces[4] === spaces[8]
-    // || spaces[2] === spaces[5] && spaces[5] === spaces[8]
-    // || spaces[2] === spaces[5] && spaces[5] === spaces[8]
-
+    || spaces[2] === spaces[4] && spaces[4] === spaces[6]
   )
   {
     console.log('somebody won');

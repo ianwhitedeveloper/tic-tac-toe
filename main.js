@@ -10,6 +10,8 @@ var player1 = 'veggies';
 var player2 = 'junkfood';
 var currentPlayer = null;
 var game_over = false
+var gamesWon_veggies = 0
+var gamesWon_junkfood = 0
 
 var setNextTurn = function () {
   if (currentPlayer === player1) {
@@ -42,6 +44,16 @@ var checkForWinner = function () {
     // TODO: Trigger 'game-win' event with the winning player as the event data
     $(document).trigger('game-win', currentPlayer);
     game_over = true
+    if (game_over === true) {
+      alert("GAME OVER");
+      if (currentPlayer === player1) {
+        gamesWon_veggies += 1
+        $('#veggies-wins').text(currentPlayer + " has won " + gamesWon_veggies + " games.");
+      } else if (currentPlayer === player2) {
+        gamesWon_junkfood += 1
+        $('#junkfood-wins').text(currentPlayer + " has won " + gamesWon_junkfood + " games.");
+      };
+    };
   }
 };
 
@@ -62,9 +74,7 @@ $(document).on('click', '#board .space', function (e) {
     } else {
       alert("Taken");
     }
-  } else {
-    alert("GAME OVER");
-  }
+  };
 });
 
 $(document).on('game-win', function (e, winner) {

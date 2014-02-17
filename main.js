@@ -78,6 +78,8 @@ $(document).on('click', '#board .space', function (e) {
 });
 
 $('#submit-newgame').on('click', function (e) {
+    $('#board .space').removeClass("veggies junkfood");
+
     game_over = false;
     player1 = 'veggies';
     player2 = 'junkfood';
@@ -87,8 +89,8 @@ $('#submit-newgame').on('click', function (e) {
       NaN, NaN, NaN,
       NaN, NaN, NaN
     ];
-    $('#board .space').val('');
-    setNextTurn();
+
+      setNextTurn();
   });
 
 $(document).on('game-win', function (e, winner) {

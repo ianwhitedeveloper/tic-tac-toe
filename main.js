@@ -77,6 +77,20 @@ $(document).on('click', '#board .space', function (e) {
   };
 });
 
+$('#submit-newgame').on('click', function (e) {
+    game_over = false;
+    player1 = 'veggies';
+    player2 = 'junkfood';
+    currentPlayer = null;
+    spaces = [
+      NaN, NaN, NaN,
+      NaN, NaN, NaN,
+      NaN, NaN, NaN
+    ];
+    $('#board .space').val('');
+    setNextTurn();
+  });
+
 $(document).on('game-win', function (e, winner) {
   // TODO: Alert who won the game
   alert(winner + " is the winner!");
